@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2019/04/17 16:32:09
+// Create Date: 2019/05/05 15:27:36
 // Design Name: 
-// Module Name: fir_lpf_3tap
+// Module Name: test39
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -21,10 +21,11 @@
 
 
 module fir_lpf_3tap(
-    input               clk     , 
-    input               rst_n   , 
-    input   [7:0]       din     , 
-    output  reg [7:0]   dout
+    input               clk         , 
+    input               rst_n       , 
+    input               fir_bypass  ,
+    input       [7:0]   din         , 
+    output  reg [7:0]   dout        
     );
 
 reg [7:0] tap [0:2];
@@ -35,7 +36,7 @@ always @(posedge clk or negedge rst_n) begin
             tap[i] <= 0;
         end
         dout <= 8'd0;
-    end else begin
+    end else if (!fir_bypass)begin
         // dout <= (tap[0] >> 2) + (tap[1]  >> 1) + (tap[2] >> 2);
         dout <= tap[0][7:2] + tap[1][7:1] + tap[2][7:2];
         /* for (i = 2; i > 0; i=i-1) begin
@@ -44,6 +45,8 @@ always @(posedge clk or negedge rst_n) begin
         tap[2] <= tap[1];
         tap[1] <= tap[0];
         tap[0] <= din;
+    end else begin
+        dout <= din;
     end
 end
 endmodule

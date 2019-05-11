@@ -1,24 +1,17 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2019/05/10 11:04:54
-// Design Name: 
-// Module Name: test46
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
+// --------------------------------------------------------------------
+// >>>>>>>>>>>>>>>>>>>>>>>>> COPYRIGHT NOTICE <<<<<<<<<<<<<<<<<<<<<<<<<
+// --------------------------------------------------------------------
+// Author: halftop
+// Github: https://github.com/halftop
+// Email: yu.zh@live.com
+// Description: 实现任意奇数分频
 // Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
+// LastEditors: halftop
+// Since: 2019-05-10 11:04:51
+// LastEditTime: 2019-05-10 22:18:17
+// ********************************************************************
+// Module Function:实现任意奇数分频
+`timescale 1ns / 1ps
 
 module div_odd
 #(

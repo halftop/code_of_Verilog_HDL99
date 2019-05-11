@@ -1,24 +1,17 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2019/05/09 16:13:30
-// Design Name: 
-// Module Name: tb44
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
+// --------------------------------------------------------------------
+// >>>>>>>>>>>>>>>>>>>>>>>>> COPYRIGHT NOTICE <<<<<<<<<<<<<<<<<<<<<<<<<
+// --------------------------------------------------------------------
+// Author: halftop
+// Github: https://github.com/halftop
+// Email: yu.zh@live.com
 // Description: 
-// 
 // Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
+// LastEditors: halftop
+// Since: 2019-05-09 16:13:27
+// LastEditTime: 2019-05-11 15:12:19
+// ********************************************************************
+// Module Function:
+`timescale 1ns / 1ps
 
 module tb44();
 reg     			clk			;
@@ -34,10 +27,11 @@ initial begin
 initial begin
     rst_n = 1'b0;
     #22 rst_n = 1'b1;
+//    #1000 $finish;
   end
 
 
-always @(posedge clk)
+always @(negedge clk)
         i_data = {$random};
 
 test44 test44

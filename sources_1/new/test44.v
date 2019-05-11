@@ -1,24 +1,17 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 2019/05/09 16:00:27
-// Design Name: 
-// Module Name: test44
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
+// --------------------------------------------------------------------
+// >>>>>>>>>>>>>>>>>>>>>>>>> COPYRIGHT NOTICE <<<<<<<<<<<<<<<<<<<<<<<<<
+// --------------------------------------------------------------------
+// Author: halftop
+// Github: https://github.com/halftop
+// Email: yu.zh@live.com
 // Description: 
-// 
 // Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
+// LastEditors: halftop
+// Since: 2019-05-09 16:00:24
+// LastEditTime: 2019-05-11 15:11:47
+// ********************************************************************
+// Module Function:
+`timescale 1ns / 1ps
 
 module test44(
     input					clk			,
@@ -30,21 +23,12 @@ module test44(
 //0.75*4 = 3，0.25*4 = 1
 
 reg [9:0] dout;
-reg [9:0] dout_r;
 
 always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin
         dout <= 'd0;
     end else begin
-        dout <= 3*i_data + dout_r;
-    end
-end
-
-always @(posedge clk or negedge rst_n) begin
-    if (!rst_n) begin
-        dout_r <= 'd0;
-    end else begin
-        dout_r <= dout;
+        dout <= 3*i_data + dout;
     end
 end
 

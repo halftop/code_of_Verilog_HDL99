@@ -27,6 +27,7 @@ initial begin
 initial begin
     rst_n = 1'b0;
     #22 rst_n = 1'b1;
+    #3000  $finish;
   end
 
 

@@ -22,9 +22,8 @@
 
 module spram
 #(
-    parameter WD = 8,       //位宽
-    parameter DP = 16,       //深度
-    parameter AD = clogb2(DP)
+    parameter WD = 8,       //数据位宽
+    parameter AD = 4        //地址位宽
 )
 (
     input               clk     ,
@@ -34,6 +33,8 @@ module spram
     input       [WD-1:0]  din     ,
     output  reg [WD-1:0]  dout    
     );
+
+localparam  DP = 1 << AD;
 reg [WD-1:0]  buffer  [DP-1:0];
 
 always @(posedge clk) begin
@@ -45,12 +46,6 @@ always @(posedge clk) begin
     endcase
 end
 
-function integer clogb2 (input integer depth);
-    begin
-        for(clogb2=0; depth>1; clogb2=clogb2+1)
-        depth = depth >> 1;
-    end
-endfunction
 endmodule
 /* module single_port_ram
 (

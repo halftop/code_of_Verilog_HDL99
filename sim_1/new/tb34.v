@@ -51,27 +51,27 @@ initial begin
     addr = 4'd0;
     din = 8'h00;
     #100
-    @(negedge clk)//read
+    @(posedge clk)//read
         cs_n = 1'b0;
     for (i = 0; i<16; i=i+1) begin
-        @(negedge clk)
+        @(posedge clk)
             addr = i;
     end
-    @(negedge clk)//write
+    @(posedge clk)//write
         w_r_n = 1'b1;
     for (i = 0; i<16; i=i+1) begin
-        @(negedge clk) begin
+        @(posedge clk) begin
             addr = i;
             din = i + 'ha0;
         end
     end
-    @(negedge clk)//read
+    @(posedge clk)//read
         w_r_n = 1'b0;
     for (i = 0; i<16; i=i+1) begin
-        @(negedge clk)
+        @(posedge clk)
             addr = i;
     end
-    @(negedge clk)
+    @(posedge clk)
         cs_n = 1'b1;
     // #100 $finish;
     #100 $stop;
